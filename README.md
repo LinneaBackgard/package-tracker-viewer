@@ -81,28 +81,6 @@ package-tracking-viewer/
 
 ---
 
-## Example Code
-
-```jsx
-const [orders, setOrders] = useState(null);
-
-useEffect(() => {
-  async function load() {
-    try {
-      const data = await fetchOrders();
-      setOrders(data);
-    } catch (e) {
-      setError("Something went wrong");
-    }
-  }
-  load();
-}, []);
-```
-
-This example shows how data is fetched asynchronously and stored in state using React hooks.
-
----
-
 ## Responsive Layout
 
 Bootstrap classes in `OrdersPage.js` make the layout responsive:
@@ -134,7 +112,7 @@ Bootstrap classes in `OrdersPage.js` make the layout responsive:
 - Add filtering by delivery status
 - Add search by customer or order ID
 - Add sorting by delivery date
-- Optional: Add a map to display delivery locations
+- Add a map to display delivery locations
 
 ---
 
