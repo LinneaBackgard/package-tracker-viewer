@@ -1,75 +1,100 @@
-<<<<<<< HEAD
-# Getting Started with Create React App
+Package Tracking Viewer
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Ett enkelt React-projekt som visar en lista med paketleveranser — ungefär som en liten spårningsapp.
+Syftet är att lära sig grunderna i React, komponenter, state, datahämtning och responsiv design med Bootstrap.
 
-## Available Scripts
+Funktioner
+Hämtar paketdata från ett API (Mockaroo).
+Faller tillbaka till lokal JSON-fil om API:t inte svarar.
+Visar varje order i ett tydligt kort:
 
-In the project directory, you can run:
+Order-ID
+Kundnamn
+Telefonnummer
+Avsändare
+Leveransstatus (färgkodad)
+Beräknad leveranstid (ETA)
+Plats (pickup)
 
-### `npm start`
+Responsivt upplägg med Bootstrap:
+1 kolumn på mobil
+2 kolumner på surfplatta
+3 kolumner på dator
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Teknik:
+React
+Bootstrap 5 (via CDN)
+Fetch API för datahämtning
+Fallback till lokal data (packagedata.json)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Projektstruktur: 
 
-### `npm test`
+package-tracking-viewer/
+├── src/
+│   ├── api/
+│   │   └── OrdersService.js
+│   ├── components/
+│   │   └── OrderCard.js
+│   ├── pages/
+│   │   └── OrdersPage.js
+│   ├── data/
+│   │   └── packagedata.json
+│   ├── App.js
+│   └── index.js
+└── public/
+    └── index.html
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Så kör du projektet lokalt
 
-### `npm run build`
+1. Klona eller ladda ner projektet:
+git clone https://github.com/LinneaBackgard/package-tracker-viewer.git
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+2. Gå in i projektmappen:
+cd package-tracker-viewer
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+3. Installera beroenden:
+npm install
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+4. Starta utvecklingsservern:
+npm start
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+5. Öppna i webbläsaren:
+http://localhost:3000
 
-## Learn More
+Exempel på kod:
+const [orders, setOrders] = useState(null);
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Responsiv layout
+Bootstrap-klasserna i OrdersPage.js gör sidan automatisk responsiv:
+<div className="col-12 col-md-6 col-lg-4">
+  <OrderCard order={o} />
+</div>
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Mobil: 1 kolumn
+Surfplatta: 2 kolumner
+Dator: 3 kolumner
 
-### Code Splitting
+Lärdomar
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Hur man hämtar data asynkront i React med useEffect.
+Hur man lagrar data i komponenter med useState.
+Hur man använder Bootstrap för layout och färger.
+Hur man gör ett enkelt fallback-system med lokal JSON.
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Förslag på framtida förbättringar
 
-### Making a Progressive Web App
+Filtrera paket efter status (t.ex. bara “på väg”).
+Lägg till sökfält för kund eller ordernummer.
+Sortera efter leveransdatum.
+Lägg till liten karta (Leaflet eller Google Maps).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Skapad av
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-=======
-# package-tracker-viewer
-Package Tracker
->>>>>>> 5cf45d1f9382024a5560a0f9c1c6640aa8a97082
+Linnéa Backgård
+Utvecklingsprojekt inom utbildningen (React-grund).
+Sverige, 2025
