@@ -1,34 +1,42 @@
-Package Tracking Viewer
+# Package Tracking Viewer
 
-Ett enkelt React-projekt som visar en lista med paketleveranser — ungefär som en liten spårningsapp.
-Syftet är att lära sig grunderna i React, komponenter, state, datahämtning och responsiv design med Bootstrap.
+A simple React project that displays a list of package deliveries.  
+It was built as a learning project to practice React components, state management, data fetching, and responsive layout using Bootstrap.
 
-Funktioner
-Hämtar paketdata från ett API (Mockaroo).
-Faller tillbaka till lokal JSON-fil om API:t inte svarar.
-Visar varje order i ett tydligt kort:
+---
 
-Order-ID
-Kundnamn
-Telefonnummer
-Avsändare
-Leveransstatus (färgkodad)
-Beräknad leveranstid (ETA)
-Plats (pickup)
+## Features
 
-Responsivt upplägg med Bootstrap:
-1 kolumn på mobil
-2 kolumner på surfplatta
-3 kolumner på dator
+- Fetches package data from an API (Mockaroo)
+- Falls back to local JSON data if the API fails
+- Displays each order in a clean card format:
+  - Order ID
+  - Customer name
+  - Phone number
+  - Sender
+  - Delivery status (color-coded)
+  - Estimated delivery time (ETA)
+  - Pickup location
+- Responsive layout using Bootstrap grid:
+  - 1 column on mobile
+  - 2 columns on tablet
+  - 3 columns on desktop
 
-Teknik:
-React
-Bootstrap 5 (via CDN)
-Fetch API för datahämtning
-Fallback till lokal data (packagedata.json)
+---
 
-Projektstruktur: 
+## Tech Stack
 
+- React  
+- Bootstrap 5 (via CDN)  
+- Fetch API for data requests  
+- Local JSON fallback (packagedata.json)  
+- Beginner-friendly code with clear structure
+
+---
+
+## Project Structure
+
+```text
 package-tracking-viewer/
 ├── src/
 │   ├── api/
@@ -44,57 +52,89 @@ package-tracking-viewer/
 └── public/
     └── index.html
 
-Så kör du projektet lokalt
+## How to Run Locally
 
-1. Klona eller ladda ner projektet:
-git clone https://github.com/LinneaBackgard/package-tracker-viewer.git
+1. Clone or download the project:
+   ```bash
+   git clone https://github.com/LinneaBackgard/package-tracker-viewer.git
+   ```
 
+2. Navigate to the project folder:
+   ```bash
+   cd package-tracker-viewer
+   ```
 
-2. Gå in i projektmappen:
-cd package-tracker-viewer
+3. Install dependencies:
+   ```bash
+   npm install
+   ```
 
+4. Start the development server:
+   ```bash
+   npm start
+   ```
 
-3. Installera beroenden:
-npm install
+5. Open your browser and go to:
+   ```
+   http://localhost:3000
+   ```
 
+---
 
-4. Starta utvecklingsservern:
-npm start
+## Example Code
 
-
-5. Öppna i webbläsaren:
-http://localhost:3000
-
-Exempel på kod:
+```jsx
 const [orders, setOrders] = useState(null);
 
-Responsiv layout
-Bootstrap-klasserna i OrdersPage.js gör sidan automatisk responsiv:
+useEffect(() => {
+  async function load() {
+    try {
+      const data = await fetchOrders();
+      setOrders(data);
+    } catch (e) {
+      setError("Something went wrong");
+    }
+  }
+  load();
+}, []);
+```
+
+This example shows how data is fetched asynchronously and stored in state using React hooks.
+
+---
+
+## Responsive Layout
+
+Bootstrap classes in `OrdersPage.js` make the layout responsive:
+
+```jsx
 <div className="col-12 col-md-6 col-lg-4">
   <OrderCard order={o} />
 </div>
+```
 
-Mobil: 1 kolumn
-Surfplatta: 2 kolumner
-Dator: 3 kolumner
+- Mobile: 1 column  
+- Tablet: 2 columns  
+- Desktop: 3 columns
 
-Lärdomar
+---
 
-Hur man hämtar data asynkront i React med useEffect.
-Hur man lagrar data i komponenter med useState.
-Hur man använder Bootstrap för layout och färger.
-Hur man gör ett enkelt fallback-system med lokal JSON.
+## What I Learned
 
+- How to fetch and display data in React using `useEffect`
+- How to store and update data using `useState`
+- How to build a responsive grid layout with Bootstrap
+- How to organize a small React app with clear components
+- How to use a local data fallback for reliability
 
-Förslag på framtida förbättringar
+---
 
-Filtrera paket efter status (t.ex. bara “på väg”).
-Lägg till sökfält för kund eller ordernummer.
-Sortera efter leveransdatum.
-Lägg till liten karta (Leaflet eller Google Maps).
+## Future Improvements
 
-Skapad av
+- Add filtering by delivery status
+- Add search by customer or order ID
+- Add sorting by delivery date
+- Optional: Add a map to display delivery locations
 
-Linnéa Backgård
-Utvecklingsprojekt inom utbildningen (React-grund).
-Sverige, 2025
+---
+
